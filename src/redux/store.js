@@ -1,10 +1,13 @@
-import { configureStore, createReducer } from '@reduxjs/toolkit';
+import { configureStore } from '@reduxjs/toolkit';
+import dataReducer from './dataSlice';
 
 import { apiSlice } from './apiSlice';
 
 export const store = configureStore({
   reducer: {
-    // data: ,
+    data: dataReducer,
+    [apiSlice.reducerPath]: apiSlice.reducer,
+
     // cart: ,
     // [apiSlice.reducerPath]: apiSlice.reducer,
     // other reducers...
